@@ -1,116 +1,56 @@
 /*************************
+ * Class Polynomial       *
+ * TNG033: Lab 2          *
+ **************************/
 
-* Class Polynomial       *
+#pragma once
 
-* TNG033: Lab 2          *
-
-**************************/
-
-
-
-#pragma once 
-
-
-
-#include <iostream> 
-
-#include <vector> 
-
-#include "expression.h" 
-
-
+#include <iostream>
+#include <vector>
+#include "expression.h"
+#include <format>
 
 class Polynomial : public Expression {
+    // ADD CODE
 
-    // ADD CODE 
-
-
-
-public:
-
-    //explicit operator std::string() const override; 
-
-    std::string toString() override;
+public: 
+    //explicit operator std::string() const override;
+    explicit operator std::string() const override;
 
     double operator()(double d) const override;
-
-
-
-
-
-    //constructor create a set with elements in V 
-
+    
+    //constructor create a set with elements in V
     explicit Polynomial(const std::vector<double>& V);
 
-
-
-    //create polynom from a real constant 
-
+    //create polynom from a real constant
     Polynomial(double arg);
 
+    //copy constructor
+    Polynomial(const Polynomial&) = default; 
 
-
-    //copy constructor 
-
-    Polynomial(const Polynomial&) = default;
-
-
-
-    //destructor 
-
-    ~Polynomial() = default;
-
-
+    //destructor
+    ~Polynomial() = default; 
 
     Polynomial* clone() const override;
 
+    //an assignment operator
+    Polynomial& operator=(const Polynomial& rhs); //inte default, vi har tagit bort default i expression.h
 
+    //add and assign operator
+    Polynomial& operator+=(const Polynomial& rhs); 
 
-    //an assignment operator 
+    //addition of two polynomials
+    friend Polynomial operator+(const Polynomial& lhs, const Polynomial rhs);
 
-    Polynomial& operator=(const Polynomial&) = default;
-
-
-
-    //add and assign operator 
-
-    Polynomial& operator+=(const Polynomial& rhs);
-
-
-
-    //addition of two polynomials 
-
-    Polynomial& operator+(const Polynomial& rhs) const;
-
-
-
-    //addition of polynomial with real double 
-
-    friend Polynomial& operator+(double d, Polynomial p); //friend has accesss to private data members: coeff :) 
-
-    //  friend Polynomial& operator+=(double d, Polynomial p); 
-
-
-
-      // subscript operator access the value of a coefficient. 
-
+    //addition of polynomial with real double
+    friend Polynomial operator+( const Polynomial& lhs, double rhs); //friend has accesss to private data members: coeff :)
+  //  friend Polynomial& operator+=(double d, Polynomial p);
+    
+    // subscript operator access the value of a coefficient.
     double& operator[](int index);
-
-
+    double operator[](int index) const;
 
 private:
-
-    std::vector<double> coeff;
-
+    std::vector<double> coeff; 
 };
-
-
-
-/*
-
-* std::vector should be used to store polinomial's coefficients
-
-*/
-
-
 

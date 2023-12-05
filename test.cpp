@@ -9,6 +9,7 @@
 
 #include "polynomial.h"
 #include "logarithm.h"
+#include <format>
 
 int main() {
     /*****************************************************
@@ -36,12 +37,12 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 1                                       *
-     * Polynomial: constructors                           *
-     *             operator std::string()                 *
-     *             operator<<                             *
-     ******************************************************/
+   ///*****************************************************
+   //  * TEST PHASE 1                                       *
+   //  * Polynomial: constructors                           *
+   //  *             operator std::string()                 *
+   //  *             operator<<                             *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 1: Polynomial - constructors, conversion to std::string, "
                  "and operator<<\n";
 
@@ -56,10 +57,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 2                                       *
-     * Polynomial: operator[]                             *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 2                                       *
+   //  * Polynomial: operator[]                             *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 2: Polynomial::operator[]\n";
 
     {
@@ -71,7 +72,7 @@ int main() {
         assert(std::string{p1} == std::string{"2.20 + 4.40 * X^1 - 8.00 * X^2 + 5.00 * X^3"});
 
         const Polynomial p2{v1};
-        // p2[3] = -4.4; // should not compile
+        //p2[3] = -4.4; // should not compile. Man försöker ändra p2 vid index 3 , men den är const. 
 
         assert(Expression::get_count_expressions() == 2);
         assert(p2[2] == -2.0);
@@ -79,10 +80,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 3                                       *
-     * Polynomial: copy constructor                       *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 3                                       *
+   //  * Polynomial: copy constructor                       *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 3: Polynomial - copy constructor\n";
 
     {
@@ -101,10 +102,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 4                                       *
-     * Polynomial: assignment operator                    *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 4                                       *
+   //  * Polynomial: assignment operator                    *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 4: Polynomial - assignment operator\n";
 
     {
@@ -138,10 +139,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 5                                       *
-     * Polynomial: operator()                             *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 5                                       *
+   //  * Polynomial: operator()                             *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 5: Polynomial::operator()\n";
 
     {
@@ -159,10 +160,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 6                                       *
-     * Polynomial: isRoot                                 *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 6                                       *
+   //  * Polynomial: isRoot                                 *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 6: Polynomial::isRoot\n";
 
     {
@@ -179,10 +180,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 7                                       *
-     * Polynomial: P1 += P2                                  *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 7                                       *
+   //  * Polynomial: P1 += P2                                  *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 7: P1 += P2\n";
 
     {
@@ -207,10 +208,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 8                                       *
-     * Polynomial: P1+P2                                  *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 8                                       *
+   //  * Polynomial: P1+P2                                  *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 8: P1 + P2\n";
 
     {
@@ -235,10 +236,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 9                                       *
-     * Polynomial: p += k, k+P and P+k                    *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 9                                       *
+   //  * Polynomial: p += k, k+P and P+k                    *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 9: p += k, k+P and P+k\n";
 
     {
@@ -270,13 +271,13 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /******************************************************
-     * TEST PHASE 10                                       *
-     * Logarithm: constructors                             *
-     *            operator std::string()                   *
-     *            set_base                                 *
-     *            operator<<                               *
-     *******************************************************/
+   // /******************************************************
+   //  * TEST PHASE 10                                       *
+   //  * Logarithm: constructors                             *
+   //  *            operator std::string()                   *
+   //  *            set_base                                 *
+   //  *            operator<<                               *
+   //  *******************************************************/
     std::cout
         << "\nTEST PHASE 10: Logarithm - constructors, conversion to std::string, set_base, and "
            "operator<<\n";
@@ -314,10 +315,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 11                                      *
-     * Logarithm: copy constructor                        *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 11                                      *
+   //  * Logarithm: copy constructor                        *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 11: Logarithm - copy constructor\n";
 
     {
@@ -340,10 +341,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 12                                      *
-     * Logarithm: isRoot                                  *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 12                                      *
+   //  * Logarithm: isRoot                                  *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 12: isRoot\n";
 
     {
@@ -361,10 +362,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 13                                       *
-     * Logarithm: operator()                              *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 13                                       *
+   //  * Logarithm: operator()                              *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 13: Logarithm::operator()\n";
 
     {
@@ -382,10 +383,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 14                                      *
-     * Logarithm: assignment operator                     *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 14                                      *
+   //  * Logarithm: assignment operator                     *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 14: Logarithm - assignment operator\n";
 
     {
@@ -411,10 +412,10 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 15                                      *
-     * Expressions: polymorphism                          *
-     ******************************************************/
+   // /*****************************************************
+   //  * TEST PHASE 15                                      *
+   //  * Expressions: polymorphism                          *
+   //  ******************************************************/
     std::cout << "\nTEST PHASE 15:  Expressions - polymorphism\n";
 
     {
@@ -429,22 +430,22 @@ int main() {
 
     assert(Expression::get_count_expressions() == 0);
 
-    /*****************************************************
-     * TEST PHASE 16                                      *
-     * Expression: assignment                             *
-     ******************************************************/
-    // std::cout << "\nTEST PHASE 16:  Expression::operator=\n";
+   // /*****************************************************
+   //  * TEST PHASE 16                                      *
+   //  * Expression: assignment                             *
+   //  ******************************************************/
+     std::cout << "\nTEST PHASE 16:  Expression::operator=\n";
 
     {
-        /*
-        std::vector<double> v1{-1, 0, 1};
-        Expression* e1 = new Polynomial{v1};
+        
+        //std::vector<double> v1{-1, 0, 1};
+        //Expression* e1 = new Polynomial{v1};
 
-        Expression* e2 = new Logarithm{};
+        //Expression* e2 = new Logarithm{};
 
-        *e1 = *e2; //<-- should not compile!!
-        */
-    }
+        //*e1 = *e2; //<-- should not compile!!
+        //
+   }
 
     std::cout << "\nSuccess!!\n";
 }
